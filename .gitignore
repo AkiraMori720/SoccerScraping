@@ -8,7 +8,10 @@ application/logs/*
 !application/logs/index.html
 !application/logs/.htaccess
 
+scraper/logs/*
 composer.lock
+
+assets/temp/*
 
 user_guide_src/build/*
 user_guide_src/cilexer/build/*
