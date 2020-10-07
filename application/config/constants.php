@@ -92,7 +92,7 @@ if(LIVE_SERVER) {
     define('BASE_URL', 'http://' . $_SERVER['HTTP_HOST'] . '/');
 }
 else {
-    define('BASE_URL', 'http://' . $_SERVER['HTTP_HOST'] . '/' . 'soccer-bet/');
+    define('BASE_URL', 'http://' . $_SERVER['HTTP_HOST'] . '/');
 }
 
 require_once "user_defined_constants.php";
