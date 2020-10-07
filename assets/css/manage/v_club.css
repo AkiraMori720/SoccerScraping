@@ -1,0 +1,33 @@
+/*.select2-container {*/
+    /*width: 100% !important;*/
+/*}*/
+
+.select2-selection {
+    height: 34px !important;
+}
+
+.select2-selection__rendered {
+    margin-top: 2px;
+}
+
+.select2-selection__arrow {
+    margin-top: 2px;
+}
+
+.dataTables_wrapper {
+    font-size: 12px !important;
+}
+
+.dataTables_paginate {
+    font-size: 12px !important;
+}
+
+.form-group.has-danger .select2-selection {
+    border-color: #a94442 !important;
+}
+
+
+.dataTables_wrapper .dataTables_paginate .paginate_button {
+    padding: 0 !important;
+    margin: 0 !important;
+}

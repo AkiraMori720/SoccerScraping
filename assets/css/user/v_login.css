@@ -1,0 +1,44 @@
+body{ background-color: #e9e9e9 !important; }
+
+.main-wrapper{
+    margin-top: 80px !important;
+}
+
+.logo { text-align: center; }
+.logo > img{ max-width: 150px; margin-right:10px; }
+
+.login-wrapper { color:#4E5D6C;}
+
+.split { border-top:1px solid #cccccc; }
+
+.inbox { background: #eeeeee; width: 384px; left:0; right:0; margin:0 auto; padding: 0; border: 2px solid #1890ff; color:#222 !important; }
+.inbox .form-horizontal { padding: 30px 40px 20px; }
+.inbox .form-control { border: 1px solid #ccc; border-radius: 0 !important; }
+.inbox .has-error .form-control { border: 1px solid #d9534f; }
+.inbox .form-control:focus { border-width: 1px; }
+.inbox .form-group { margin-bottom: 15px !important; }
+.inbox .help-block { margin-bottom: 0px !important; }
+.inbox .list-unstyled{ margin-bottom: 0px !important; }
+
+.with-errors { color: #d9534f; }
+
+.inner-addon { position: relative; color:#aaa !important; }
+
+/* style icon */
+.inner-addon .fa { position: absolute; padding: 11px; pointer-events: none;}
+
+/* align icon */
+.left-addon .fa  { left:  1px; top: 1px; }
+.right-addon .fa { right: 1px; top: 1px; }
+
+/* add padding  */
+.left-addon input  { padding-left:  45px; }
+.right-addon input { padding-right: 30px; }
+
+@media only screen and (max-width: 768px) {
+    .inbox .form-horizontal { padding: 15px 15px; }
+}
+
+@media only screen and (max-width: 480px) {
+    .inbox .form-horizontal { padding: 10px 10px; }
+}

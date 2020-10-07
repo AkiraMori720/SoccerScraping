@@ -1,0 +1,26 @@
+.logo { text-align: center; }
+.logo > img{ max-width: 192px; }
+
+.split { border-top:1px solid #cccccc; }
+
+.inbox .form-control { border: 1px solid #ccc; border-radius: 0 !important;
+    border-left: 2px solid #d9534f !important; }
+.inbox .has-error .form-control { border: 1px solid #d9534f; }
+.inbox .form-control:focus { border-width: 1px; }
+.inbox .form-group { margin-bottom: 15px !important; }
+.inbox .form-group label { font-weight: normal !important; }
+.inbox .help-block { margin-bottom: 0px !important; }
+.inbox .list-unstyled{ margin-bottom: 0px !important; }
+
+.with-errors { color: #d9534f; }
+
+.mask-tip {
+    color: red !important;
+}
+
+.captcha-image {
+    margin-top: 26px;
+    border: 1px solid darkgray;
+    width: 102px;
+    cursor: pointer;
+}

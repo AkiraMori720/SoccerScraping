@@ -1,0 +1,45 @@
+.select2-container {
+    width: 100% !important;
+}
+
+.select2-selection {
+    height: 34px !important;
+}
+
+.select2-selection__rendered {
+    margin-top: 2px;
+}
+
+.select2-selection__arrow {
+    margin-top: 2px;
+}
+
+.dataTables_wrapper {
+    font-size: 12px !important;
+}
+
+.dataTables_paginate {
+    font-size: 12px !important;
+}
+
+.form-group.has-danger .select2-selection {
+    border-color: #a94442 !important;
+}
+
+.disabled-select {
+    background-color:#d5d5d5;
+    opacity:0.5;
+    border-radius:3px;
+    cursor:not-allowed;
+    position:absolute;
+    top:0;
+    bottom:0;
+    right:0;
+    left:0;
+}
+
+
+.dataTables_wrapper .dataTables_paginate .paginate_button {
+    padding: 0 !important;
+    margin: 0 !important;
+}

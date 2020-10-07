@@ -1,0 +1,32 @@
+body{ background-color: #e9e9e9 !important; }
+
+.main-wrapper{
+    margin-top: 40px !important;
+}
+
+.logo { text-align: center; }
+.logo > img{ max-width: 150px; margin-right:10px; }
+
+.split { border-top:1px solid #cccccc; }
+
+.inbox { background: #eeeeee; left:0; right:0; margin:0 auto; padding: 20px 20px 10px 20px; width: 100%; border: 2px solid #1890ff; color:#222 !important; }
+.inbox .form-control { border: 1px solid #ccc; border-radius: 0 !important; }
+.inbox .has-error .form-control { border: 1px solid #d9534f; }
+.inbox .form-control:focus { border-width: 1px; }
+.inbox .form-group { margin-bottom: 15px !important; }
+.inbox .form-group label { font-weight: normal !important; }
+.inbox .help-block { margin-bottom: 0px !important; }
+.inbox .list-unstyled{ margin-bottom: 0px !important; }
+
+.with-errors { color: #d9534f; }
+
+.mask-tip {
+    color: red !important;
+}
+
+.captcha-image {
+    margin-top: 26px;
+    border: 1px solid darkgray;
+    width: 102px;
+    cursor: pointer;
+}

@@ -1,0 +1,385 @@
+
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button { -webkit-appearance: none; margin: 0; }
+input[type='number'] { -moz-appearance:textfield; }
+
+.custom-checkbox {
+    display: inline-block;
+    min-width: 120px;
+    margin: 8px;
+}
+
+.custom-checkbox input[type=checkbox]:not(old),
+.custom-checkbox input[type=radio   ]:not(old){
+    width     : 0;
+    margin    : 0;
+    padding   : 0;
+    font-size : 1em;
+    opacity   : 0;
+    line-height: 34px;
+    height: 1em;
+    position: absolute;
+}
+
+.custom-checkbox label {
+    line-height: 24px !important;
+    font-weight: normal;
+    margin: 0;
+    color: rgba(0,0,0,0.65);
+}
+
+.custom-checkbox input[type=checkbox] + label,
+.custom-checkbox input[type=radio   ] + label{
+    display       : inline-block;
+    vertical-align: middle;
+    cursor: pointer;
+}
+
+.custom-checkbox input[type=checkbox] + label > img,
+.custom-checkbox input[type=radio   ] + label > img{
+    display     : inline-block;
+    width       : 16px;
+    height      : 16px;
+    margin-right: 5px;
+    margin-bottom: 0;
+    opacity: 0.8;
+    border: 0 none;
+}
+
+.custom-checkbox input[type=checkbox] + label > img
+{
+    background: url("../img/components/checkbox-normal.png");
+    background-size: cover !important;
+	pointer-events: none;
+}
+
+.custom-checkbox input[type=radio] + label > img
+{
+    background: url("../img/components/radio-normal.png");
+    background-size: cover !important;
+	pointer-events: none;
+}
+
+.custom-checkbox input[type=checkbox]:checked + label > img {
+    background: url("../img/components/checkbox-checked.png") !important;
+    opacity: 1;
+    background-size: cover !important;
+	pointer-events: none;
+}
+.custom-checkbox input[type=radio   ]:checked + label > img{
+    background: url("../img/components/radio-checked.png") !important;
+    opacity: 1;
+    background-size: cover !important;
+	pointer-events: none;
+}
+
+.custom-select {
+    display: inline-block;
+    appearance: none !important;
+    -moz-appearance: none !important;
+    -webkit-appearance: none !important;
+    background: url("../img/components/select_icon.png") no-repeat scroll right center transparent !important;
+    background-color: transparent;
+    background-position-x: right;
+    background-position-y: center;
+    background-position: right 8px center !important;
+    background-color: #FFFFFF !important;
+    font-size: 12px;
+    padding: 0px 10px 0px 10px;
+    height: 32px;
+    font-weight: normal !important;
+    min-width: 100px;
+    border: 1px solid #cecece;
+    border-radius: 5px;
+	cursor: pointer;
+}
+
+/*
+.btn-primary {
+    background-color:#764ea5;
+    border-color:#764ea5;
+}
+
+.btn-primary:hover,
+.btn-primary:focus,
+.btn-primary:active {
+    background-color:#532e7b;
+    border-color:#532e7b;
+}
+
+.btn-primary.disabled:hover,
+.btn-primary.disabled:focus,
+.btn-primary.disabled:active{
+    background-color:#c6c6c6;
+    border-color:#c6c6c6;
+}
+
+.btn-primary.disabled {
+	background-color:#afadd2;
+	border-color:#afadd2;
+}
+*/
+
+.switch {
+    display: inline-block;
+    width: 44px;
+    height: 22px;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+	cursor: pointer;
+}
+
+.switch.switch-on {
+    background-image: url('../img/components/symbols-switch-text-on.png');
+}
+
+.switch.switch-on.cn,
+.switch.switch-on.chinese{
+	background-image: url('../img/components/symbols-switch-text-on-cn.png');
+}
+
+.switch.switch-off {
+    background-image: url('../img/components/symbols-switch-text-off.png');
+}
+
+.switch.switch-off.cn,
+.switch.switch-off.chinese{
+	background-image: url('../img/components/symbols-switch-text-off-cn.png');
+}
+
+
+.blockUI > img { height: 20px; margin-left: 5px; }
+.blockUI > span { margin-left: 10px; font-size: 15px; }
+
+.modal-title .fa { margin-right:5px; }
+.modal-dialog .btn { min-width:60px; }
+
+.dataTables_wrapper .table {
+    width : 100% !important;
+}
+
+.dataTables_wrapper .table > thead th,
+.dataTables_wrapper .table > tbody td {
+    vertical-align : top !important;
+    text-align: center;
+    border-bottom: 1px solid #94cafc !important;
+    border-top: none !important;
+}
+
+.dataTables_wrapper .table > tfoot td {
+    border-top: none !important;
+}
+
+.dataTables_wrapper .table tr > td > label { color:#949ba2; }
+
+.dataTables_wrapper .table .child > table td { padding: 5px 0px 5px 10px !important;}
+.dataTables_filter input{ font-weight: normal !important; }
+
+.dataTables_wrapper .cell-text {
+	text-align: left;
+	min-width: 120px;
+	max-width: 200px;
+	line-break: anywhere;
+}
+
+.dataTables_wrapper .cell-text-long {
+	text-align: left;
+	max-width: 400px;
+	min-width: 200px;
+}
+
+.dataTables_wrapper .image-wrapper {
+	margin: auto;
+	text-align: center;
+	cursor: pointer;
+	width: 80px;
+	height: 80px;
+	border: 1px solid lightgray;
+	border-radius: 5px;
+	overflow: hidden;
+	position: relative;
+	background: white;
+}
+
+.dataTables_wrapper .image-wrapper .img-view {
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	margin: auto;
+	max-width: 80px;
+}
+
+.dataTables_wrapper .cell-style { min-width:50px !important; }
+.dataTables_wrapper .cell-index { min-width:50px !important; font-weight: normal !important; color: #222 !important; }
+
+@media only screen and (max-width: 767px) {
+    .dataTables_wrapper { padding : 20px 5px !important; }
+}
+
+.dataTables_wrapper .table > thead th {
+    padding-top: 15px;
+    padding-bottom: 15px;
+    background-color: #fafafa;
+    font-family: 'PingFangSC-Medium';
+}
+
+.dataTables_wrapper .table > tbody td {
+    padding-top: 15px;
+    padding-bottom: 15px;
+    background-color: white;
+}
+
+.dataTables_wrapper .table > tbody td .switch {
+    cursor: pointer;
+}
+
+.dataTables_wrapper .skill-item {
+	display: inline-block;
+	margin: 2px 3px;
+	padding: 3px 5px;
+	border: 1px solid #c9b6df;
+	border-radius: 5px;
+	background-color: #eee9f5;
+}
+
+.dataTables_wrapper .dataTables_paginate .paginate_button {
+    padding: 0.2em 0.3em;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    background: none !important;
+    min-width: 25px !important;
+    border-color: lightgray;
+    color: #2d2d2d;
+    margin: 0 3px;
+}
+
+.dataTables_wrapper .dataTables_paginate .paginate_button:hover {
+    border-color: #1890ff !important;
+    color: #000 !important;
+}
+
+.dataTables_wrapper .dataTables_paginate .paginate_button.current {
+    border-color: #1890ff !important;
+    color: #1890ff !important;
+}
+
+.dataTables_wrapper .dataTables_paginate .paginate_button.current:hover {
+    color: #1890ff !important;
+}
+
+.dataTables_wrapper .dataTables_paginate .paginate_button.disabled {
+    border-color: lightgray !important;
+    color: #dedede !important;
+}
+
+.dataTables_wrapper .dataTables_paginate .paginate_button.disabled:hover {
+    color: #dedede !important;
+}
+
+table.dataTable.no-footer {
+    border-bottom: 1px solid #f1f1f1 !important;
+}
+
+.page-size{
+    display: inline-block;
+    float: right;
+}
+
+.page-size select {
+    display: inline-block;
+    appearance: none !important;
+    -moz-appearance: none !important;
+    -webkit-appearance: none !important;
+    background: url("../img/components/datalist-bg.png") no-repeat scroll right center transparent !important;
+    background-color: transparent;
+    background-position-x: right;
+    background-position-y: center;
+    background-position: right 8px center !important;
+    background-color: #FFFFFF !important;
+    font-size: 12px;
+    padding: 0px 10px 0px 6px;
+    margin: 3px 10px 0 5px;
+    height: 28px;
+    font-weight: normal !important;
+}
+
+.page-num {
+    display: inline-block;
+    float: right;
+    margin: 0 20px;
+}
+
+.page-num .txtPageNum {
+    display: inline-block;
+    font-size: 12px;
+    padding: 0px 6px 0px 6px;
+    margin: 3px 3px 0 5px;
+    height: 28px;
+    width: 45px;
+    text-align: center;
+    font-weight: normal !important;
+}
+
+.panel-primary {
+	border-color: #1890ff;
+}
+
+.panel-primary > .panel-heading {
+	color: #fff;
+	background-color: #1890ff;
+	border-color: #1890ff;
+}
+
+.modal-header > .modal-title {
+	color: #1890ff;
+}
+
+.fifa-flag {
+    background:url('../img/flags.png') no-repeat scroll -4px -621px;
+    height:11px;
+    line-height:18px;
+    width:16px;
+    display:inline-block;
+    text-decoration:none;
+    cursor:pointer;
+    font-size:1px !important
+}
+
+.fifa-flag.england {
+    background-position: -256px -145px !important;
+}
+
+.fifa-flag.germany {
+    background-position: -284px -117px !important;
+}
+
+.fifa-flag.spain {
+    background-position: -4px -173px !important;
+}
+
+.fifa-flag.italy {
+    background-position: -172px -257px !important;
+}
+
+.fifa-flag.france {
+    background-position: -228px -173px !important;
+}
+
+.fifa-flag.netherlands {
+    background-position: -116px -397px !important;
+}
+
+.fifa-flag.denmark {
+    background-position: -32px -145px !important;
+}
+
+.fifa-flag.world {
+    background-position: -116px -621px !important;
+}
+
+.fifa-flag.europe {
+    background-position: -228px -593px !important;
+}

@@ -1,0 +1,408 @@
+create table base_sites (
+    id int auto_increment primary key,
+    site varchar(100),
+    link varchar(512),
+    league_link varchar(512),
+
+    created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+    unique key(site)
+);
+
+create table base_country (
+    id int auto_increment primary key,
+    country varchar(100),
+    iso2_code varchar(2),
+
+    oddsportal varchar(100),
+    soccervista varchar(100),
+    predictz varchar(100),
+    soccerway varchar(100),
+    soccerbase varchar(100),
+
+    date_inserted TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    unique key(country)
+);
+
+create table base_leagues (
+    id int auto_increment primary key,
+
+    site varchar(100),
+    country varchar(100),
+    league varchar(100),
+    link varchar(512),
+
+    created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+    unique key(site, country, league)
+);
+
+create table base_clubs (
+    id int auto_increment primary key,
+
+    site varchar(100),
+    country varchar(100),
+    league varchar(100),
+    club varchar(512),
+
+    created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+    unique key(site, country, club)
+);
+
+create table base_leagues_recommend (
+    id int auto_increment primary key,
+    country varchar(100),
+
+    division varchar(100),
+
+    date_inserted TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    unique key(country, division)
+);
+
+create table base_division (
+    id int auto_increment primary key,
+    country_id int(11),
+
+    name_1 varchar(100),
+    name_2 varchar(100),
+
+    date_inserted TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    unique key(country_id, name_1)
+);
+
+create table base_similarity (
+    id int auto_increment primary key,
+
+    country varchar(100),
+    `type` enum('division', 'team'),
+
+    oddsportal varchar(100),
+    soccervista varchar(100),
+    predictz varchar(100),
+    soccerway varchar(100),
+    soccerbase varchar(100),
+
+    date_inserted TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    unique key(country, `type`, oddsportal)
+);
+
+
+create table matches_similarity (
+    id int auto_increment primary key,
+
+    oddsportal_id int(11),
+    soccervista_id int(11),
+
+    similarity double(10,2) default 0,
+
+    date_inserted TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    unique key(oddsportal_id, soccervista_id)
+);
+
+
+create table matches_oddsportal (
+    id int auto_increment primary key,
+
+    country varchar(100),
+    division varchar(100),
+    team1 varchar(100),
+    team2 varchar(100),
+    away_team varchar(100),
+    score varchar(100),
+    odds_1 varchar(100),
+    odds_x varchar(100),
+    odds_2 varchar(100),
+    bookmark varchar(100),
+
+    `date_found` varchar(100),
+    `match_time` varchar(100),
+
+    date_inserted TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    unique key(country, division, team1, team2, `date_found`)
+);
+
+create table matches_soccervista (
+    id int auto_increment primary key,
+
+    country varchar(100),
+    division varchar(100),
+    team1 varchar(100),
+    team2 varchar(100),
+    away_team varchar(100),
+    result varchar(100),
+
+    odds_1 varchar(100),
+    odds_x varchar(100),
+    odds_2 varchar(100),
+
+    inf_1x2 varchar(100),
+    goals varchar(100),
+    score varchar(100),
+
+    `date_found` varchar(100),
+    `match_time` varchar(100),
+
+    date_inserted TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    unique key(country, division, team1, team2, `date_found`)
+);
+
+
+create table matches_final (
+    id int auto_increment primary key,
+
+    oddsportal_id int(11),
+
+    country varchar(100),
+    division varchar(100),
+
+    home_team varchar(100),
+    result varchar(100),
+    away_team varchar(100),
+
+    odds_1 varchar(100),
+    odds_x varchar(100),
+    odds_2 varchar(100),
+    bookmark varchar(100),
+
+    soccervista_1x2 varchar(100),
+    soccervista_goal varchar(100),
+    soccervista_cs varchar(100),
+
+    predictz_result varchar(100),
+    predictz_score varchar(100),
+
+    windrawwin_1x1 varchar(100),
+    windrawwin_cs varchar(100),
+
+    soccerway_link varchar(512),
+
+    `date_found` varchar(100),
+    `match_time` varchar(100),
+
+    `referee_id` int(11),
+    `referee_name` varchar(100),
+
+    date_inserted TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    unique key(oddsportal_id)
+);
+
+create table teams_info (
+    id int auto_increment primary key,
+
+    country varchar(100),
+    team_name varchar(100),
+    team_site varchar(512),
+    team_link varchar(512),
+    team_logo varchar(512),
+    founded varchar(50),
+    address varchar(512),
+    phone varchar(20),
+    fax varchar(20),
+    email varchar(100),
+
+    venue_name varchar(100),
+    venue_link varchar(512),
+    venue_image_file varchar(512),
+    venue_image_url varchar(512),
+    venue_city varchar(100),
+    venue_capacity int(11),
+
+    date_inserted TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    unique key(country, `team_name`)
+);
+
+CREATE TABLE teams_match_history (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+
+    country VARCHAR(100),
+    division VARCHAR(100),
+    match_type ENUM('home', 'away'),
+    match_date VARCHAR(20),
+    home_team varchar(100),
+    away_team VARCHAR(100),
+    match_result VARCHAR(10),
+
+    date_inserted TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    UNIQUE KEY(country, `division`, `match_type`, `match_date`, `home_team`, `away_team`)
+);
+
+CREATE TABLE teams_rankings (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+
+    fetch_date date,
+    country VARCHAR(100),
+    division VARCHAR(100),
+    cur_rank varchar(20),
+    prev_rank varchar(20),
+    team_name VARCHAR(100),
+    total_matches VARCHAR(20),
+    total_wins VARCHAR(20),
+    total_draws VARCHAR(20),
+    total_loses VARCHAR(20),
+    total_gf VARCHAR(20),
+    total_ga VARCHAR(20),
+    total_gdiff VARCHAR(20),
+    total_point VARCHAR(20),
+    last_5matches varchar(20),
+
+    date_inserted TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    UNIQUE KEY(fetch_date, country, `division`, `team_name`)
+);
+
+create table base_referee (
+    id int auto_increment primary key,
+
+    referee_name varchar(100),
+    country varchar(100),
+    season varchar(20),
+    referee_link varchar(512),
+    total_matches varchar(10),
+    yellow_cards varchar(10),
+    red_cards varchar(10),
+
+    date_inserted TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    unique key(season, referee_link)
+);
+
+create table soccerbase_referee (
+    id int auto_increment primary key,
+
+    referee_id int(11),
+    season varchar(100),
+    country varchar(100),
+    division varchar(100),
+    league_id varchar(20),
+    match_date varchar(20),
+    home_team varchar(100),
+    away_team VARCHAR(100),
+
+    match_result varchar(10),
+    yellow_card int(11) default 0,
+    red_card int(11) default 0,
+
+    date_inserted TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    unique key(referee_id, season, league_id, `match_date`, `home_team`, `away_team`)
+);
+
+create table soccerway_link_logs (
+    id int auto_increment primary key,
+
+    date_on date,
+    link varchar(512),
+
+    date_inserted TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    unique key(link)
+);
+
+create table soccerbase_leagues (
+    id int auto_increment primary key,
+
+    country varchar(100),
+    league varchar(100),
+    league_id varchar(10),
+
+    date_inserted TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+
+    unique key a2(league_id)
+);
+
+
+create table matches_final_summary (
+    id int auto_increment primary key,
+    match_id INT(11) NOT NULL,
+
+    match_week varchar(100),
+    roypick_grp int(11),
+    roypick_no  int(11),
+
+    match_at datetime,
+    competition varchar(100),
+    match_time varchar(100),
+    match_team varchar(100),
+    match_result varchar(100),
+    match_odds_1 double(10,2),
+    match_odds_x double(10,2),
+    match_odds_2 double(10,2),
+    match_bookmark int(11),
+    match_sv_1x2 varchar(100),
+    match_sv_ou varchar(100),
+    match_sv_cs varchar(100),
+    match_wdw_1x2 varchar(100),
+    match_wdw_cs varchar(100),
+    match_rp2_1x2 varchar(100),
+    match_rp2_cs varchar(100),
+    match_p_idx varchar(100),
+    match_sw_link varchar(512),
+
+    picks_avg double(10,4),
+    picks_fz double(10,2),
+    picks_1x2 varchar(10),
+    sv_1x2 varchar(10),
+    sv_cs1 varchar(10),
+    wdw_1x2 varchar(10),
+    wdw_cs2 varchar(10),
+    prdz_1x2 varchar(10),
+    prdz_cs3 varchar(10),
+    roy_1x2 varchar(10),
+    roy_cs4 varchar(10),
+    roy_percent double(10,4),
+    roy_sg varchar(10),
+    roy_cs5 varchar(10),
+    roy_1 double(10,4),
+    roy_x double(10,4),
+    roy_2 double(10,4),
+    result_1 varchar(10),
+    result_2 varchar(10),
+    c_spic1 varchar(10),
+    c_spic1_p double(10,2),
+    c_spic2 varchar(10),
+    c_spic2_p double(10,2),
+    c_spic3 varchar(10),
+    c_spic3_p double(10,2),
+    c_spic4 varchar(10),
+    c_spic4_p double(10,2),
+    rfz_o15 double(10,2),
+    rfz_o25 double(10,2),
+    rfz_cs4 double(10,2),
+    rfz_cs5 double(10,2),
+    rfz_scrd double(10,2),
+    rfz_concd double(10,2),
+    rfz_bts double(10,2),
+    rfz_sg2 double(10,2),
+    rfz_sg3 double(10,2),
+    rfz_cs1 varchar(10),
+    rfz_cs2 varchar(10),
+    rfz_cs3 varchar(10),
+    rfz_25 double(10,2),
+    rfz_sg varchar(10),
+    e_picks_avg varchar(10),
+    e_picks_1x2 varchar(10),
+    first_r varchar(10),
+    first_p varchar(10),
+    second_r varchar(10),
+    second_p varchar(10),
+    third_r varchar(10),
+    third_p varchar(10),
+    fourth_r varchar(10),
+    fourth_p varchar(10),
+    p_odds_1 double(10,4),
+    p_odds_x double(10,4),
+    p_odds_2 double(10,4),
+    p_roy1_1 double(10,2),
+    p_roy1_x double(10,2),
+    p_roy1_2 double(10,2),
+    p_roy2_1 double(10,2),
+    p_roy2_x double(10,2),
+    p_roy2_2 double(10,2),
+    p_roy3_1 double(10,2),
+    p_roy3_x double(10,2),
+    p_roy3_2 double(10,2),
+    p_roy4_1 double(10,2),
+    p_roy4_x double(10,2),
+    p_roy4_2 double(10,2),
+
+    created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+    unique key(match_id)
+);

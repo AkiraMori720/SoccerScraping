@@ -1,0 +1,5 @@
+Match: https://int.soccerway.com/matches/2020/06/07/germany/3-liga/sc-preussen-06-ev-munster/spvgg-unterhaching/3053433/
+Venue: Preußen-Stadion (Münster)
+Referee: L. Benen
+A. <a href='http://int.soccerway.com/teams/germany/sc-preussen-06-ev-munster/1024/' target='_blank'><b>SC Preußen 06 Münster</b></a>, <a href='1024.png' target='_blank'>Logo</a>, Id:1024
+B. <a href='http://int.soccerway.com/teams/germany/spvgg-unterhaching/988/' target='_blank'><b>SpVgg Unterhaching</b></a>, <a href='988.png' target='_blank'>Logo</a>, Id:988

@@ -1,0 +1,512 @@
+================= Started at 2020-10-01 04:00:07 =================
+=> Retrieving Tips for matches...
+   Failed to fetch tips! Reason: No matches to check.
+=> Retrieving team details for qualified matches...
+=> Analyzing qualified matches...
+================= Finished at 2020-10-01 04:00:09 =================
+================= Started at 2020-10-01 04:06:46 =================
+=> Retrieving leagues...
+   - Checking on the site [oddsportal] ...
+     Found 6 league(s).
+   - Checking on the site [soccervista] ...
+     Found 6 league(s).
+   - Checking on the site [predictz] ...
+     Found 5 league(s).
+   - Checking on the site [windrawwin] ...
+     Found 5 league(s).
+   - Checking on the site [soccerway] ...
+     Found 6 league(s).
+   - Checking on the site [soccerbase] ...
+     Found 6 league(s).
+=> Retrieving Clubs...
+=> Retrieving Referees...
+=> Retrieving Rankings...
+   - Checking for [England] => [Premier League] ...
+   - Checking for [France] => [Ligue 1] ...
+   - Checking for [Germany] => [2. Bundesliga,Bundesliga] ...
+   - Checking for [Italy] => [Serie A] ...
+   - Checking for [Spain] => [LaLiga,LaLiga2] ...
+================= Finished at 2020-10-01 04:10:12 ================================== Started at 2020-10-01 04:12:28 =================
+=> Retrieving leagues...
+   - Checking on the site [oddsportal] ...
+     Found 6 league(s).
+   - Checking on the site [soccervista] ...
+     Found 6 league(s).
+   - Checking on the site [predictz] ...
+     Found 5 league(s).
+   - Checking on the site [windrawwin] ...
+     Found 5 league(s).
+   - Checking on the site [soccerway] ...
+     Found 6 league(s).
+   - Checking on the site [soccerbase] ...
+     Found 6 league(s).
+=> Retrieving Clubs...
+=> Retrieving Referees...
+   - Checking for the country [France][French Division 1] ...
+     Found 22 referee(s).
+   - Checking for the country [Germany][German Bundesliga] ...
+     Found 17 referee(s).
+   - Checking for the country [Germany][German Bundesliga 2] ...
+     Found 17 referee(s).
+   - Checking for the country [England][Premier League] ...
+     Found 15 referee(s).
+   - Checking for the country [Spain][Spanish La Liga] ...
+     Found 20 referee(s).
+   - Checking for the country [Spain][Spanish Segunda Division] ...
+     Found 24 referee(s).
+   - Checking for the country [Italy][Italian Serie A] ...
+     Found 25 referee(s).
+=> Retrieving Rankings...
+   - Checking for [England] => [Premier League] ...
+   - Checking for [France] => [Ligue 1] ...
+   - Checking for [Germany] => [Bundesliga,2. Bundesliga] ...
+   - Checking for [Italy] => [Serie A] ...
+   - Checking for [Spain] => [LaLiga,LaLiga2] ...
+================= Started at 2020-10-01 04:50:41 =================
+=> Retrieving Matches...
+   - Checking for [2020-09-30][oddsportal] ...
+     Found 63 match(es).
+   - Checking for [2020-09-30][soccervista] ...
+     Found 29 match(es).
+   - Checking for [2020-10-01][oddsportal] ...
+     Found 17 match(es).
+   - Checking for [2020-10-01][soccervista] ...
+     Found 6 match(es).
+================= Finished at 2020-10-01 04:51:55 =================
+================= Started at 2020-10-01 04:56:15 =================
+=> Retrieving Matches...
+   - Checking for [2020-10-01][oddsportal] ...
+     Found 17 match(es).
+   - Checking for [2020-10-01][soccervista] ...
+     Found 6 match(es).
+================= Finished at 2020-10-01 04:56:51 =================
+================= Finished at 2020-10-01 05:07:07 =================
+================= Started at 2020-10-01 05:12:51 =================
+=> Retrieving Rankings...
+   - Checking for [England] => [Premier League] ...
+   - Checking for [France] => [Ligue 1] ...
+   - Checking for [Germany] => [2. Bundesliga,Bundesliga] ...
+   - Checking for [Italy] => [Serie A] ...
+   - Checking for [Spain] => [LaLiga,LaLiga2] ...
+    SaveRankings InsertOrDuplicate SQL Failed: INSERT INTO teams_rankings SET season='2020/21', fetch_date=CURDATE(),`country`=(SELECT oddsportal FROM base_country WHERE season='2020/21' AND country='Spain'),`division`=(SELECT oddsportal FROM base_similarity WHERE country='Spain' AND `type`='division' AND soccerway='Segunda División' LIMIT 1),`team_name`=(SELECT oddsportal FROM base_similarity WHERE country='Spain' AND `type`='team' AND soccerway='Castellón' LIMIT 1),`cur_rank`='10',`prev_rank`='4',`total_matches`='3',`total_wins`='1',`total_draws`='1',`total_loses`='1',`total_gf`='3',`total_ga`='3',`total_gdiff`='+0',`total_point`='4',`last_5matches`='DLW' ON DUPLICATE KEY UPDATE `cur_rank`='10',`prev_rank`='4',`total_matches`='3',`total_wins`='1',`total_draws`='1',`total_loses`='1',`total_gf`='3',`total_ga`='3',`total_gdiff`='+0',`total_point`='4',`last_5matches`='DLW'
+    SaveRankings InsertOrDuplicate SQL Failed: INSERT INTO teams_rankings SET season='2020/21', fetch_date=CURDATE(),`country`=(SELECT oddsportal FROM base_country WHERE season='2020/21' AND country='Spain'),`division`=(SELECT oddsportal FROM base_similarity WHERE country='Spain' AND `type`='division' AND soccerway='Segunda División' LIMIT 1),`team_name`=(SELECT oddsportal FROM base_similarity WHERE country='Spain' AND `type`='team' AND soccerway='UD Logroñés' LIMIT 1),`cur_rank`='18',`prev_rank`='19',`total_matches`='2',`total_wins`='0',`total_draws`='1',`total_loses`='1',`total_gf`='1',`total_ga`='2',`total_gdiff`='-1',`total_point`='1',`last_5matches`='DL' ON DUPLICATE KEY UPDATE `cur_rank`='18',`prev_rank`='19',`total_matches`='2',`total_wins`='0',`total_draws`='1',`total_loses`='1',`total_gf`='1',`total_ga`='2',`total_gdiff`='-1',`total_point`='1',`last_5matches`='DL'
+    SaveRankings InsertOrDuplicate SQL Failed: INSERT INTO teams_rankings SET season='2020/21', fetch_date=CURDATE(),`country`=(SELECT oddsportal FROM base_country WHERE season='2020/21' AND country='Spain'),`division`=(SELECT oddsportal FROM base_similarity WHERE country='Spain' AND `type`='division' AND soccerway='Segunda División' LIMIT 1),`team_name`=(SELECT oddsportal FROM base_similarity WHERE country='Spain' AND `type`='team' AND soccerway='FC Cartagena' LIMIT 1),`cur_rank`='19',`prev_rank`='9',`total_matches`='3',`total_wins`='0',`total_draws`='1',`total_loses`='2',`total_gf`='1',`total_ga`='4',`total_gdiff`='-3',`total_point`='1',`last_5matches`='LLD' ON DUPLICATE KEY UPDATE `cur_rank`='19',`prev_rank`='9',`total_matches`='3',`total_wins`='0',`total_draws`='1',`total_loses`='2',`total_gf`='1',`total_ga`='4',`total_gdiff`='-3',`total_point`='1',`last_5matches`='LLD'
+    SaveRankings InsertOrDuplicate SQL Failed: INSERT INTO teams_rankings SET season='2020/21', fetch_date=CURDATE(),`country`=(SELECT oddsportal FROM base_country WHERE season='2020/21' AND country='Spain'),`division`=(SELECT oddsportal FROM base_similarity WHERE country='Spain' AND `type`='division' AND soccerway='Segunda División' LIMIT 1),`team_name`=(SELECT oddsportal FROM base_similarity WHERE country='Spain' AND `type`='team' AND soccerway='Sabadell' LIMIT 1),`cur_rank`='20',`prev_rank`='15',`total_matches`='2',`total_wins`='0',`total_draws`='0',`total_loses`='2',`total_gf`='1',`total_ga`='3',`total_gdiff`='-2',`total_point`='0',`last_5matches`='LL' ON DUPLICATE KEY UPDATE `cur_rank`='20',`prev_rank`='15',`total_matches`='2',`total_wins`='0',`total_draws`='0',`total_loses`='2',`total_gf`='1',`total_ga`='3',`total_gdiff`='-2',`total_point`='0',`last_5matches`='LL'
+================= Finished at 2020-10-01 05:14:38 =================
+================= Started at 2020-10-01 05:42:20 =================
+=> Retrieving Rankings...
+   - Checking for [England] => [Premier League] ...
+    Not Registered Division in base_similarity -> country : England , soccerway : Premier League 
+    Not Registered Team in base_similarity -> country : England , soccerway :  
+    Not Registered Division in base_similarity -> country : England , soccerway : Premier League 
+    Not Registered Team in base_similarity -> country : England , soccerway :  
+    Not Registered Division in base_similarity -> country : England , soccerway : Premier League 
+    Not Registered Team in base_similarity -> country : England , soccerway :  
+    Not Registered Division in base_similarity -> country : England , soccerway : Premier League 
+    Not Registered Team in base_similarity -> country : England , soccerway :  
+    Not Registered Division in base_similarity -> country : England , soccerway : Premier League 
+    Not Registered Team in base_similarity -> country : England , soccerway :  
+    Not Registered Division in base_similarity -> country : England , soccerway : Premier League 
+    Not Registered Team in base_similarity -> country : England , soccerway :  
+    Not Registered Division in base_similarity -> country : England , soccerway : Premier League 
+    Not Registered Team in base_similarity -> country : England , soccerway :  
+    Not Registered Division in base_similarity -> country : England , soccerway : Premier League 
+    Not Registered Team in base_similarity -> country : England , soccerway :  
+    Not Registered Division in base_similarity -> country : England , soccerway : Premier League 
+    Not Registered Team in base_similarity -> country : England , soccerway :  
+    Not Registered Division in base_similarity -> country : England , soccerway : Premier League 
+    Not Registered Team in base_similarity -> country : England , soccerway :  
+    Not Registered Division in base_similarity -> country : England , soccerway : Premier League 
+    Not Registered Team in base_similarity -> country : England , soccerway :  
+    Not Registered Division in base_similarity -> country : England , soccerway : Premier League 
+    Not Registered Team in base_similarity -> country : England , soccerway :  
+    Not Registered Division in base_similarity -> country : England , soccerway : Premier League 
+    Not Registered Team in base_similarity -> country : England , soccerway :  
+    Not Registered Division in base_similarity -> country : England , soccerway : Premier League 
+    Not Registered Team in base_similarity -> country : England , soccerway :  
+    Not Registered Division in base_similarity -> country : England , soccerway : Premier League 
+    Not Registered Team in base_similarity -> country : England , soccerway :  
+    Not Registered Division in base_similarity -> country : England , soccerway : Premier League 
+    Not Registered Team in base_similarity -> country : England , soccerway :  
+    Not Registered Division in base_similarity -> country : England , soccerway : Premier League 
+    Not Registered Team in base_similarity -> country : England , soccerway :  
+    Not Registered Division in base_similarity -> country : England , soccerway : Premier League 
+    Not Registered Team in base_similarity -> country : England , soccerway :  
+    Not Registered Division in base_similarity -> country : England , soccerway : Premier League 
+    Not Registered Team in base_similarity -> country : England , soccerway :  
+    Not Registered Division in base_similarity -> country : England , soccerway : Premier League 
+    Not Registered Team in base_similarity -> country : England , soccerway :  
+   - Checking for [France] => [Ligue 1] ...
+    Not Registered Division in base_similarity -> country : France , soccerway : Ligue 1 
+    Not Registered Team in base_similarity -> country : France , soccerway :  
+    Not Registered Division in base_similarity -> country : France , soccerway : Ligue 1 
+    Not Registered Team in base_similarity -> country : France , soccerway :  
+    Not Registered Division in base_similarity -> country : France , soccerway : Ligue 1 
+    Not Registered Team in base_similarity -> country : France , soccerway :  
+    Not Registered Division in base_similarity -> country : France , soccerway : Ligue 1 
+    Not Registered Team in base_similarity -> country : France , soccerway :  
+    Not Registered Division in base_similarity -> country : France , soccerway : Ligue 1 
+    Not Registered Team in base_similarity -> country : France , soccerway :  
+    Not Registered Division in base_similarity -> country : France , soccerway : Ligue 1 
+    Not Registered Team in base_similarity -> country : France , soccerway :  
+    Not Registered Division in base_similarity -> country : France , soccerway : Ligue 1 
+    Not Registered Team in base_similarity -> country : France , soccerway :  
+    Not Registered Division in base_similarity -> country : France , soccerway : Ligue 1 
+    Not Registered Team in base_similarity -> country : France , soccerway :  
+    Not Registered Division in base_similarity -> country : France , soccerway : Ligue 1 
+    Not Registered Team in base_similarity -> country : France , soccerway :  
+    Not Registered Division in base_similarity -> country : France , soccerway : Ligue 1 
+    Not Registered Team in base_similarity -> country : France , soccerway :  
+    Not Registered Division in base_similarity -> country : France , soccerway : Ligue 1 
+    Not Registered Team in base_similarity -> country : France , soccerway :  
+    Not Registered Division in base_similarity -> country : France , soccerway : Ligue 1 
+    Not Registered Team in base_similarity -> country : France , soccerway :  
+    Not Registered Division in base_similarity -> country : France , soccerway : Ligue 1 
+    Not Registered Team in base_similarity -> country : France , soccerway :  
+    Not Registered Division in base_similarity -> country : France , soccerway : Ligue 1 
+    Not Registered Team in base_similarity -> country : France , soccerway :  
+    Not Registered Division in base_similarity -> country : France , soccerway : Ligue 1 
+    Not Registered Team in base_similarity -> country : France , soccerway :  
+    Not Registered Division in base_similarity -> country : France , soccerway : Ligue 1 
+    Not Registered Team in base_similarity -> country : France , soccerway :  
+    Not Registered Division in base_similarity -> country : France , soccerway : Ligue 1 
+    Not Registered Team in base_similarity -> country : France , soccerway :  
+    Not Registered Division in base_similarity -> country : France , soccerway : Ligue 1 
+    Not Registered Team in base_similarity -> country : France , soccerway :  
+    Not Registered Division in base_similarity -> country : France , soccerway : Ligue 1 
+    Not Registered Team in base_similarity -> country : France , soccerway :  
+    Not Registered Division in base_similarity -> country : France , soccerway : Ligue 1 
+    Not Registered Team in base_similarity -> country : France , soccerway :  
+   - Checking for [Germany] => [2. Bundesliga,Bundesliga] ...
+================= Started at 2020-10-01 05:43:09 =================
+=> Retrieving Rankings...
+   - Checking for [England] => [Premier League] ...
+    Not Registered Division in base_similarity -> country : England , soccerway : Premier League 
+    Not Registered Team in base_similarity -> country : England , soccerway : Leicester City 
+    Not Registered Division in base_similarity -> country : England , soccerway : Premier League 
+    Not Registered Team in base_similarity -> country : England , soccerway : Liverpool 
+    Not Registered Division in base_similarity -> country : England , soccerway : Premier League 
+    Not Registered Team in base_similarity -> country : England , soccerway : Everton 
+    Not Registered Division in base_similarity -> country : England , soccerway : Premier League 
+    Not Registered Team in base_similarity -> country : England , soccerway : Aston Villa 
+    Not Registered Division in base_similarity -> country : England , soccerway : Premier League 
+    Not Registered Team in base_similarity -> country : England , soccerway : Arsenal 
+    Not Registered Division in base_similarity -> country : England , soccerway : Premier League 
+    Not Registered Team in base_similarity -> country : England , soccerway : Crystal Palace 
+    Not Registered Division in base_similarity -> country : England , soccerway : Premier League 
+    Not Registered Team in base_similarity -> country : England , soccerway : Leeds United 
+    Not Registered Division in base_similarity -> country : England , soccerway : Premier League 
+    Not Registered Team in base_similarity -> country : England , soccerway : Tottenham Hotspur 
+    Not Registered Division in base_similarity -> country : England , soccerway : Premier League 
+    Not Registered Team in base_similarity -> country : England , soccerway : Chelsea 
+    Not Registered Division in base_similarity -> country : England , soccerway : Premier League 
+    Not Registered Team in base_similarity -> country : England , soccerway : Newcastle United 
+    Not Registered Division in base_similarity -> country : England , soccerway : Premier League 
+    Not Registered Team in base_similarity -> country : England , soccerway : West Ham United 
+    Not Registered Division in base_similarity -> country : England , soccerway : Premier League 
+    Not Registered Team in base_similarity -> country : England , soccerway : Brighton & Hove Albion 
+    Not Registered Division in base_similarity -> country : England , soccerway : Premier League 
+    Not Registered Team in base_similarity -> country : England , soccerway : Manchester City 
+    Not Registered Division in base_similarity -> country : England , soccerway : Premier League 
+    Not Registered Team in base_similarity -> country : England , soccerway : Manchester United 
+    Not Registered Division in base_similarity -> country : England , soccerway : Premier League 
+    Not Registered Team in base_similarity -> country : England , soccerway : Southampton 
+    Not Registered Division in base_similarity -> country : England , soccerway : Premier League 
+    Not Registered Team in base_similarity -> country : England , soccerway : Wolverhampton Wanderers 
+    Not Registered Division in base_similarity -> country : England , soccerway : Premier League 
+    Not Registered Team in base_similarity -> country : England , soccerway : West Bromwich Albion 
+    Not Registered Division in base_similarity -> country : England , soccerway : Premier League 
+    Not Registered Team in base_similarity -> country : England , soccerway : Burnley 
+    Not Registered Division in base_similarity -> country : England , soccerway : Premier League 
+    Not Registered Team in base_similarity -> country : England , soccerway : Sheffield United 
+    Not Registered Division in base_similarity -> country : England , soccerway : Premier League 
+    Not Registered Team in base_similarity -> country : England , soccerway : Fulham 
+   - Checking for [France] => [Ligue 1] ...
+    Not Registered Division in base_similarity -> country : France , soccerway : Ligue 1 
+    Not Registered Team in base_similarity -> country : France , soccerway : Rennes 
+    Not Registered Division in base_similarity -> country : France , soccerway : Ligue 1 
+    Not Registered Team in base_similarity -> country : France , soccerway : Lille 
+    Not Registered Division in base_similarity -> country : France , soccerway : Ligue 1 
+    Not Registered Team in base_similarity -> country : France , soccerway : Montpellier 
+    Not Registered Division in base_similarity -> country : France , soccerway : Ligue 1 
+    Not Registered Team in base_similarity -> country : France , soccerway : Saint-Etienne 
+    Not Registered Division in base_similarity -> country : France , soccerway : Ligue 1 
+    Not Registered Team in base_similarity -> country : France , soccerway : Monaco 
+    Not Registered Division in base_similarity -> country : France , soccerway : Ligue 1 
+    Not Registered Team in base_similarity -> country : France , soccerway : Lens 
+    Not Registered Division in base_similarity -> country : France , soccerway : Ligue 1 
+    Not Registered Team in base_similarity -> country : France , soccerway : PSG 
+    Not Registered Division in base_similarity -> country : France , soccerway : Ligue 1 
+    Not Registered Team in base_similarity -> country : France , soccerway : Angers SCO 
+    Not Registered Division in base_similarity -> country : France , soccerway : Ligue 1 
+    Not Registered Team in base_similarity -> country : France , soccerway : Olympique Marseille 
+    Not Registered Division in base_similarity -> country : France , soccerway : Ligue 1 
+    Not Registered Team in base_similarity -> country : France , soccerway : Nice 
+    Not Registered Division in base_similarity -> country : France , soccerway : Ligue 1 
+    Not Registered Team in base_similarity -> country : France , soccerway : Olympique Lyonnais 
+    Not Registered Division in base_similarity -> country : France , soccerway : Ligue 1 
+    Not Registered Team in base_similarity -> country : France , soccerway : Bordeaux 
+    Not Registered Division in base_similarity -> country : France , soccerway : Ligue 1 
+    Not Registered Team in base_similarity -> country : France , soccerway : Brest 
+    Not Registered Division in base_similarity -> country : France , soccerway : Ligue 1 
+    Not Registered Team in base_similarity -> country : France , soccerway : Nîmes 
+    Not Registered Division in base_similarity -> country : France , soccerway : Ligue 1 
+    Not Registered Team in base_similarity -> country : France , soccerway : Nantes 
+    Not Registered Division in base_similarity -> country : France , soccerway : Ligue 1 
+    Not Registered Team in base_similarity -> country : France , soccerway : Lorient 
+    Not Registered Division in base_similarity -> country : France , soccerway : Ligue 1 
+    Not Registered Team in base_similarity -> country : France , soccerway : Metz 
+    Not Registered Division in base_similarity -> country : France , soccerway : Ligue 1 
+    Not Registered Team in base_similarity -> country : France , soccerway : Strasbourg 
+    Not Registered Division in base_similarity -> country : France , soccerway : Ligue 1 
+    Not Registered Team in base_similarity -> country : France , soccerway : Reims 
+    Not Registered Division in base_similarity -> country : France , soccerway : Ligue 1 
+    Not Registered Team in base_similarity -> country : France , soccerway : Dijon 
+   - Checking for [Germany] => [2. Bundesliga,Bundesliga] ...
+    Not Registered Division in base_similarity -> country : Germany , soccerway : 2. Bundesliga 
+    Not Registered Team in base_similarity -> country : Germany , soccerway : Hamburger SV 
+    Not Registered Division in base_similarity -> country : Germany , soccerway : 2. Bundesliga 
+    Not Registered Team in base_similarity -> country : Germany , soccerway : Erzgebirge Aue 
+    Not Registered Division in base_similarity -> country : Germany , soccerway : 2. Bundesliga 
+    Not Registered Team in base_similarity -> country : Germany , soccerway : St. Pauli 
+    Not Registered Division in base_similarity -> country : Germany , soccerway : 2. Bundesliga 
+    Not Registered Team in base_similarity -> country : Germany , soccerway : Bochum 
+    Not Registered Division in base_similarity -> country : Germany , soccerway : 2. Bundesliga 
+    Not Registered Team in base_similarity -> country : Germany , soccerway : Osnabrück 
+    Not Registered Division in base_similarity -> country : Germany , soccerway : 2. Bundesliga 
+    Not Registered Team in base_similarity -> country : Germany , soccerway : Nürnberg 
+    Not Registered Division in base_similarity -> country : Germany , soccerway : 2. Bundesliga 
+    Not Registered Team in base_similarity -> country : Germany , soccerway : Holstein Kiel 
+    Not Registered Division in base_similarity -> country : Germany , soccerway : 2. Bundesliga 
+    Not Registered Team in base_similarity -> country : Germany , soccerway : Hannover 96 
+    Not Registered Division in base_similarity -> country : Germany , soccerway : 2. Bundesliga 
+    Not Registered Team in base_similarity -> country : Germany , soccerway : Heidenheim 
+    Not Registered Division in base_similarity -> country : Germany , soccerway : 2. Bundesliga 
+    Not Registered Team in base_similarity -> country : Germany , soccerway : Sandhausen 
+    Not Registered Division in base_similarity -> country : Germany , soccerway : 2. Bundesliga 
+    Not Registered Team in base_similarity -> country : Germany , soccerway : Fortuna Dusseldorf 
+    Not Registered Division in base_similarity -> country : Germany , soccerway : 2. Bundesliga 
+    Not Registered Team in base_similarity -> country : Germany , soccerway : Greuther Fürth 
+    Not Registered Division in base_similarity -> country : Germany , soccerway : 2. Bundesliga 
+    Not Registered Team in base_similarity -> country : Germany , soccerway : Jahn Regensburg 
+    Not Registered Division in base_similarity -> country : Germany , soccerway : 2. Bundesliga 
+    Not Registered Team in base_similarity -> country : Germany , soccerway : Darmstadt 98 
+    Not Registered Division in base_similarity -> country : Germany , soccerway : 2. Bundesliga 
+    Not Registered Team in base_similarity -> country : Germany , soccerway : Eintracht Braunschweig 
+    Not Registered Division in base_similarity -> country : Germany , soccerway : 2. Bundesliga 
+    Not Registered Team in base_similarity -> country : Germany , soccerway : Paderborn 
+    Not Registered Division in base_similarity -> country : Germany , soccerway : 2. Bundesliga 
+    Not Registered Team in base_similarity -> country : Germany , soccerway : Karlsruher SC 
+    Not Registered Division in base_similarity -> country : Germany , soccerway : 2. Bundesliga 
+    Not Registered Team in base_similarity -> country : Germany , soccerway : Würzburger Kickers 
+    Not Registered Division in base_similarity -> country : Germany , soccerway : Bundesliga 
+    Not Registered Team in base_similarity -> country : Germany , soccerway : Hoffenheim 
+    Not Registered Division in base_similarity -> country : Germany , soccerway : Bundesliga 
+    Not Registered Team in base_similarity -> country : Germany , soccerway : Augsburg 
+    Not Registered Division in base_similarity -> country : Germany , soccerway : Bundesliga 
+    Not Registered Team in base_similarity -> country : Germany , soccerway : Eintracht Frankfurt 
+    Not Registered Division in base_similarity -> country : Germany , soccerway : Bundesliga 
+    Not Registered Team in base_similarity -> country : Germany , soccerway : RB Leipzig 
+    Not Registered Division in base_similarity -> country : Germany , soccerway : Bundesliga 
+    Not Registered Team in base_similarity -> country : Germany , soccerway : Freiburg 
+    Not Registered Division in base_similarity -> country : Germany , soccerway : Bundesliga 
+    Not Registered Team in base_similarity -> country : Germany , soccerway : Arminia Bielefeld 
+    Not Registered Division in base_similarity -> country : Germany , soccerway : Bundesliga 
+    Not Registered Team in base_similarity -> country : Germany , soccerway : Bayern Munich 
+    Not Registered Division in base_similarity -> country : Germany , soccerway : Bundesliga 
+    Not Registered Team in base_similarity -> country : Germany , soccerway : Stuttgart 
+    Not Registered Division in base_similarity -> country : Germany , soccerway : Bundesliga 
+    Not Registered Team in base_similarity -> country : Germany , soccerway : Hertha BSC 
+    Not Registered Division in base_similarity -> country : Germany , soccerway : Bundesliga 
+    Not Registered Team in base_similarity -> country : Germany , soccerway : Borussia Dortmund 
+    Not Registered Division in base_similarity -> country : Germany , soccerway : Bundesliga 
+    Not Registered Team in base_similarity -> country : Germany , soccerway : Werder Bremen 
+    Not Registered Division in base_similarity -> country : Germany , soccerway : Bundesliga 
+    Not Registered Team in base_similarity -> country : Germany , soccerway : Bayer Leverkusen 
+    Not Registered Division in base_similarity -> country : Germany , soccerway : Bundesliga 
+    Not Registered Team in base_similarity -> country : Germany , soccerway : Wolfsburg 
+    Not Registered Division in base_similarity -> country : Germany , soccerway : Bundesliga 
+    Not Registered Team in base_similarity -> country : Germany , soccerway : Union Berlin 
+    Not Registered Division in base_similarity -> country : Germany , soccerway : Bundesliga 
+    Not Registered Team in base_similarity -> country : Germany , soccerway : Borussia M\'gladbach 
+    Not Registered Division in base_similarity -> country : Germany , soccerway : Bundesliga 
+    Not Registered Team in base_similarity -> country : Germany , soccerway : Köln 
+    Not Registered Division in base_similarity -> country : Germany , soccerway : Bundesliga 
+    Not Registered Team in base_similarity -> country : Germany , soccerway : Mainz 05 
+    Not Registered Division in base_similarity -> country : Germany , soccerway : Bundesliga 
+    Not Registered Team in base_similarity -> country : Germany , soccerway : Schalke 04 
+   - Checking for [Italy] => [Serie A] ...
+    Not Registered Division in base_similarity -> country : Italy , soccerway : Serie A 
+    Not Registered Team in base_similarity -> country : Italy , soccerway : Napoli 
+    Not Registered Division in base_similarity -> country : Italy , soccerway : Serie A 
+    Not Registered Team in base_similarity -> country : Italy , soccerway : Atalanta 
+    Not Registered Division in base_similarity -> country : Italy , soccerway : Serie A 
+    Not Registered Team in base_similarity -> country : Italy , soccerway : Internazionale 
+    Not Registered Division in base_similarity -> country : Italy , soccerway : Serie A 
+    Not Registered Team in base_similarity -> country : Italy , soccerway : Hellas Verona 
+    Not Registered Division in base_similarity -> country : Italy , soccerway : Serie A 
+    Not Registered Team in base_similarity -> country : Italy , soccerway : Milan 
+    Not Registered Division in base_similarity -> country : Italy , soccerway : Serie A 
+    Not Registered Team in base_similarity -> country : Italy , soccerway : Juventus 
+    Not Registered Division in base_similarity -> country : Italy , soccerway : Serie A 
+    Not Registered Team in base_similarity -> country : Italy , soccerway : Sassuolo 
+    Not Registered Division in base_similarity -> country : Italy , soccerway : Serie A 
+    Not Registered Team in base_similarity -> country : Italy , soccerway : Bologna 
+    Not Registered Division in base_similarity -> country : Italy , soccerway : Serie A 
+    Not Registered Team in base_similarity -> country : Italy , soccerway : Fiorentina 
+    Not Registered Division in base_similarity -> country : Italy , soccerway : Serie A 
+    Not Registered Team in base_similarity -> country : Italy , soccerway : Lazio 
+    Not Registered Division in base_similarity -> country : Italy , soccerway : Serie A 
+    Not Registered Team in base_similarity -> country : Italy , soccerway : Spezia 
+    Not Registered Division in base_similarity -> country : Italy , soccerway : Serie A 
+    Not Registered Team in base_similarity -> country : Italy , soccerway : Benevento 
+    Not Registered Division in base_similarity -> country : Italy , soccerway : Serie A 
+    Not Registered Team in base_similarity -> country : Italy , soccerway : Genoa 
+    Not Registered Division in base_similarity -> country : Italy , soccerway : Serie A 
+    Not Registered Team in base_similarity -> country : Italy , soccerway : Cagliari 
+    Not Registered Division in base_similarity -> country : Italy , soccerway : Serie A 
+    Not Registered Team in base_similarity -> country : Italy , soccerway : Roma 
+    Not Registered Division in base_similarity -> country : Italy , soccerway : Serie A 
+    Not Registered Team in base_similarity -> country : Italy , soccerway : Torino 
+    Not Registered Division in base_similarity -> country : Italy , soccerway : Serie A 
+    Not Registered Team in base_similarity -> country : Italy , soccerway : Udinese 
+    Not Registered Division in base_similarity -> country : Italy , soccerway : Serie A 
+    Not Registered Team in base_similarity -> country : Italy , soccerway : Sampdoria 
+    Not Registered Division in base_similarity -> country : Italy , soccerway : Serie A 
+    Not Registered Team in base_similarity -> country : Italy , soccerway : Crotone 
+    Not Registered Division in base_similarity -> country : Italy , soccerway : Serie A 
+    Not Registered Team in base_similarity -> country : Italy , soccerway : Parma 
+   - Checking for [Spain] => [LaLiga,LaLiga2] ...
+    Not Registered Division in base_similarity -> country : Spain , soccerway : La Liga 
+    Not Registered Team in base_similarity -> country : Spain , soccerway : Getafe 
+    Not Registered Division in base_similarity -> country : Spain , soccerway : La Liga 
+    Not Registered Team in base_similarity -> country : Spain , soccerway : Valencia 
+    Not Registered Division in base_similarity -> country : Spain , soccerway : La Liga 
+    Not Registered Team in base_similarity -> country : Spain , soccerway : Real Madrid 
+    Not Registered Division in base_similarity -> country : Spain , soccerway : La Liga 
+    Not Registered Team in base_similarity -> country : Spain , soccerway : Villarreal 
+    Not Registered Division in base_similarity -> country : Spain , soccerway : La Liga 
+    Not Registered Team in base_similarity -> country : Spain , soccerway : Real Betis 
+    Not Registered Division in base_similarity -> country : Spain , soccerway : La Liga 
+    Not Registered Team in base_similarity -> country : Spain , soccerway : Granada 
+    Not Registered Division in base_similarity -> country : Spain , soccerway : La Liga 
+    Not Registered Team in base_similarity -> country : Spain , soccerway : Real Sociedad 
+    Not Registered Division in base_similarity -> country : Spain , soccerway : La Liga 
+    Not Registered Team in base_similarity -> country : Spain , soccerway : Celta Vigo 
+    Not Registered Division in base_similarity -> country : Spain , soccerway : La Liga 
+    Not Registered Team in base_similarity -> country : Spain , soccerway : Atletico Madrid 
+    Not Registered Division in base_similarity -> country : Spain , soccerway : La Liga 
+    Not Registered Team in base_similarity -> country : Spain , soccerway : Barcelona 
+    Not Registered Division in base_similarity -> country : Spain , soccerway : La Liga 
+    Not Registered Team in base_similarity -> country : Spain , soccerway : Sevilla 
+    Not Registered Division in base_similarity -> country : Spain , soccerway : La Liga 
+    Not Registered Team in base_similarity -> country : Spain , soccerway : Levante 
+    Not Registered Division in base_similarity -> country : Spain , soccerway : La Liga 
+    Not Registered Team in base_similarity -> country : Spain , soccerway : Osasuna 
+    Not Registered Division in base_similarity -> country : Spain , soccerway : La Liga 
+    Not Registered Team in base_similarity -> country : Spain , soccerway : Athletic Club 
+    Not Registered Division in base_similarity -> country : Spain , soccerway : La Liga 
+    Not Registered Team in base_similarity -> country : Spain , soccerway : Cádiz 
+    Not Registered Division in base_similarity -> country : Spain , soccerway : La Liga 
+    Not Registered Team in base_similarity -> country : Spain , soccerway : Huesca 
+    Not Registered Division in base_similarity -> country : Spain , soccerway : La Liga 
+    Not Registered Team in base_similarity -> country : Spain , soccerway : Elche 
+    Not Registered Division in base_similarity -> country : Spain , soccerway : La Liga 
+    Not Registered Team in base_similarity -> country : Spain , soccerway : Real Valladolid 
+    Not Registered Division in base_similarity -> country : Spain , soccerway : La Liga 
+    Not Registered Team in base_similarity -> country : Spain , soccerway : Eibar 
+    Not Registered Division in base_similarity -> country : Spain , soccerway : La Liga 
+    Not Registered Team in base_similarity -> country : Spain , soccerway : Deportivo Alavés 
+    Not Registered Division in base_similarity -> country : Spain , soccerway : Segunda División 
+    Not Registered Team in base_similarity -> country : Spain , soccerway : Sporting Gijón 
+    Not Registered Division in base_similarity -> country : Spain , soccerway : Segunda División 
+    Not Registered Team in base_similarity -> country : Spain , soccerway : Espanyol 
+    Not Registered Division in base_similarity -> country : Spain , soccerway : Segunda División 
+    Not Registered Team in base_similarity -> country : Spain , soccerway : Fuenlabrada 
+    Not Registered Division in base_similarity -> country : Spain , soccerway : Segunda División 
+    Not Registered Team in base_similarity -> country : Spain , soccerway : Ponferradina 
+    Not Registered Division in base_similarity -> country : Spain , soccerway : Segunda División 
+    Not Registered Team in base_similarity -> country : Spain , soccerway : Leganes 
+    Not Registered Division in base_similarity -> country : Spain , soccerway : Segunda División 
+    Not Registered Team in base_similarity -> country : Spain , soccerway : Málaga 
+    Not Registered Division in base_similarity -> country : Spain , soccerway : Segunda División 
+    Not Registered Team in base_similarity -> country : Spain , soccerway : Rayo Vallecano 
+    Not Registered Division in base_similarity -> country : Spain , soccerway : Segunda División 
+    Not Registered Team in base_similarity -> country : Spain , soccerway : Mirandés 
+    Not Registered Division in base_similarity -> country : Spain , soccerway : Segunda División 
+    Not Registered Team in base_similarity -> country : Spain , soccerway : Alcorcón 
+    Not Registered Division in base_similarity -> country : Spain , soccerway : Segunda División 
+    Not Registered Division in base_similarity -> country : Spain , soccerway : Segunda División 
+    Not Registered Team in base_similarity -> country : Spain , soccerway : Mallorca 
+    Not Registered Division in base_similarity -> country : Spain , soccerway : Segunda División 
+    Not Registered Team in base_similarity -> country : Spain , soccerway : Almería 
+    Not Registered Division in base_similarity -> country : Spain , soccerway : Segunda División 
+    Not Registered Team in base_similarity -> country : Spain , soccerway : Tenerife 
+    Not Registered Division in base_similarity -> country : Spain , soccerway : Segunda División 
+    Not Registered Team in base_similarity -> country : Spain , soccerway : Lugo 
+    Not Registered Division in base_similarity -> country : Spain , soccerway : Segunda División 
+    Not Registered Team in base_similarity -> country : Spain , soccerway : Las Palmas 
+    Not Registered Division in base_similarity -> country : Spain , soccerway : Segunda División 
+    Not Registered Team in base_similarity -> country : Spain , soccerway : Real Oviedo 
+    Not Registered Division in base_similarity -> country : Spain , soccerway : Segunda División 
+    Not Registered Team in base_similarity -> country : Spain , soccerway : Real Zaragoza 
+    Not Registered Division in base_similarity -> country : Spain , soccerway : Segunda División 
+    Not Registered Division in base_similarity -> country : Spain , soccerway : Segunda División 
+    Not Registered Division in base_similarity -> country : Spain , soccerway : Segunda División 
+    Not Registered Division in base_similarity -> country : Spain , soccerway : Segunda División 
+    Not Registered Team in base_similarity -> country : Spain , soccerway : Girona 
+    Not Registered Division in base_similarity -> country : Spain , soccerway : Segunda División 
+    Not Registered Team in base_similarity -> country : Spain , soccerway : Albacete 
+================= Finished at 2020-10-01 05:45:25 =================
+================= Started at 2020-10-01 05:45:35 =================
+=> Retrieving Rankings...
+   - Checking for [England] => [Premier League] ...
+   - Checking for [France] => [Ligue 1] ...
+   - Checking for [Germany] => [2. Bundesliga,Bundesliga] ...
+   - Checking for [Italy] => [Serie A] ...
+   - Checking for [Spain] => [LaLiga,LaLiga2] ...
+    Not Registered Team in base_similarity -> country : Spain , soccerway : Castellón 
+    Not Registered Team in base_similarity -> country : Spain , soccerway : UD Logroñés 
+    Not Registered Team in base_similarity -> country : Spain , soccerway : FC Cartagena 
+    Not Registered Team in base_similarity -> country : Spain , soccerway : Sabadell 
+================= Finished at 2020-10-01 05:47:12 =================
+================= Started at 2020-10-01 06:08:23 =================
+=> Retrieving Rankings...
+   - Checking for [England] => [Premier League] ...
+   - Checking for [France] => [Ligue 1] ...
+================= Started at 2020-10-01 11:00:24 =================
+=> Retrieving Rankings...
+   - Checking for [England] => [Premier League] ...
+   - Checking for [France] => [Ligue 1] ...
+   - Checking for [Germany] => [2. Bundesliga,Bundesliga] ...
+================= Started at 2020-10-01 11:03:40 =================
+=> Retrieving Rankings...
+   - Checking for [England] => [Premier League] ...
+   - Checking for [France] => [Ligue 1] ...
+   - Checking for [Germany] => [2. Bundesliga,Bundesliga] ...
+   - Checking for [Italy] => [Serie A] ...
+   - Checking for [Spain] => [LaLiga,LaLiga2] ...
+================= Started at 2020-10-01 11:05:23 =================
+=> Retrieving Rankings...
+   - Checking for [England] => [Premier League] ...
+   - Checking for [France] => [Ligue 1] ...
+   - Checking for [Germany] => [2. Bundesliga,Bundesliga] ...
+   - Checking for [Italy] => [Serie A] ...
+   - Checking for [Spain] => [LaLiga,LaLiga2] ...
+    Not Registered Team in base_similarity -> country : Spain , soccerway : Castellón 
+    Not Registered Team in base_similarity -> country : Spain , soccerway : UD Logroñés 
+    Not Registered Team in base_similarity -> country : Spain , soccerway : FC Cartagena 
+    Not Registered Team in base_similarity -> country : Spain , soccerway : Sabadell 
+================= Finished at 2020-10-01 11:07:02 =================
+================= Started at 2020-10-01 11:07:35 =================
+=> Retrieving Rankings...
+   - Checking for [England] => [Premier League] ...
+   - Checking for [France] => [Ligue 1] ...
+   - Checking for [Germany] => [2. Bundesliga,Bundesliga] ...
+   - Checking for [Italy] => [Serie A] ...
+   - Checking for [Spain] => [LaLiga,LaLiga2] ...
+    Not Registered Team in base_similarity -> country : Spain , soccerway : Castellón 
+    Not Registered Team in base_similarity -> country : Spain , soccerway : UD Logroñés 
+    Not Registered Team in base_similarity -> country : Spain , soccerway : FC Cartagena 
+    Not Registered Team in base_similarity -> country : Spain , soccerway : Sabadell 
+================= Finished at 2020-10-01 11:09:11 =================
