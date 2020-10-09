@@ -39,9 +39,9 @@ exports.executeScrape = function(casper, season, country, leagueList, callback) 
         }
         else {
             casper.waitForSelector(
-                'div[id="navbar-left"] > div[class^="custom-dropdown"]',
+                'div[id^="navbar-left"] > div[class^="custom-dropdown"]',
                 function(){
-                    selectCountry();
+					selectCountry();
                 },
                 function(){},
                 5000
@@ -71,7 +71,7 @@ exports.executeScrape = function(casper, season, country, leagueList, callback) 
                     var ele = findElementsInfo([eleSelector + ' > li']);
                     var menuIndex = -1;
                     for(var i = 0; i < ele.length; i++) {
-                        if(ele[i].text.indexOf(country) >= 0) {
+                        if(ele[i].text.search(country) >= 0) {
                             menuIndex = i;
                             break;
                         }

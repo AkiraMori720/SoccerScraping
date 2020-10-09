@@ -156,6 +156,9 @@ class M_OddsPortal extends M_DataTable
             // Update Match_Final
             $updates['result'] = $score;
             unset($updates['score']);
+			if(isset($updates['season'])){
+				unset($updates['season']);
+			}
 
             $sql = "UPDATE matches_final SET " . $this->sqlAppendSetValues($updates, false) . " WHERE oddsportal_id='{$id}'";
             $this->executeSQL($sql);

@@ -468,8 +468,8 @@ EOD;
             $updates['result'] = $score;
             unset($updates['score']);
             if(isset($updates['season'])){
-                unset($updates['season']);
-            }
+				unset($updates['season']);
+			}
 
             $sql = "UPDATE matches_final SET " . $this->m_DBConn->sqlAppendSetValues($updates, false) . " WHERE oddsportal_id='{$id}'";
             try{

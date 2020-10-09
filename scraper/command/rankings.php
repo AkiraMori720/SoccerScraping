@@ -8,7 +8,7 @@
 
 // error_reporting(0);
 
-require_once "inc/SaveData.php";
+require_once "../inc/SaveData.php";
 
 $_gDbConn_ = new Database();
 
@@ -62,7 +62,7 @@ try {
         $leaguesOdds  = getValueInArray($league, 'divisions_oddsportal');
         $leaguesSoway = getValueInArray($league, 'divisions_soccerway');
 
-        printMessage("   - Checking for [{$country}] => [{$leaguesOdds}] ...", "");
+        printMessage("   - Checking for [{$country}] => [{$leaguesSoway}] ...", "");
 
         try {
             $customSeason = getCorrectSeason($_gActiveSeason_, "soccerway");
