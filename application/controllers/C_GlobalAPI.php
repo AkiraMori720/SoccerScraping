@@ -502,25 +502,26 @@ class C_GlobalAPI extends C_Super
                 // For Rankings
                 $ranksForThisTeam = $rankings[$country][$league];
 
+                $row = 1;
                 foreach($ranksForThisTeam as $teamName => $rankingItem) {
                     $curRank = $rankingItem['cur_rank'];
 
-                    if(!isset($excelValues[0][$curRank + 32])) {
-                        $excelValues[0][$curRank + 32] = array();
+                    if(!isset($excelValues[0][$row + 32])) {
+                        $excelValues[0][$row + 32] = array();
                     }
 
-                    $excelValues[0][$curRank + 32][0]  = $curRank;
-                    $excelValues[0][$curRank + 32][1]  = $rankingItem['prev_rank'];
-                    $excelValues[0][$curRank + 32][2]  = $teamName;
-                    $excelValues[0][$curRank + 32][3]  = $rankingItem['matches'];
-                    $excelValues[0][$curRank + 32][4]  = $rankingItem['wins'];
-                    $excelValues[0][$curRank + 32][5]  = $rankingItem['draws'];
-                    $excelValues[0][$curRank + 32][6]  = $rankingItem['loses'];
-                    $excelValues[0][$curRank + 32][7]  = $rankingItem['total_gf'];
-                    $excelValues[0][$curRank + 32][8]  = $rankingItem['total_ga'];
-                    $excelValues[0][$curRank + 32][9]  = $rankingItem['total_gd'];
-                    $excelValues[0][$curRank + 32][10] = $rankingItem['total_pt'];
-                    $excelValues[0][$curRank + 32][11] = $rankingItem['last_5'];
+                    $excelValues[0][$row + 32][0]  = $curRank;
+                    $excelValues[0][$row + 32][1]  = $rankingItem['prev_rank'];
+                    $excelValues[0][$row + 32][2]  = $teamName;
+                    $excelValues[0][$row + 32][3]  = $rankingItem['matches'];
+                    $excelValues[0][$row + 32][4]  = $rankingItem['wins'];
+                    $excelValues[0][$row + 32][5]  = $rankingItem['draws'];
+                    $excelValues[0][$row + 32][6]  = $rankingItem['loses'];
+                    $excelValues[0][$row + 32][7]  = $rankingItem['total_gf'];
+                    $excelValues[0][$row + 32][8]  = $rankingItem['total_ga'];
+                    $excelValues[0][$row + 32][9]  = $rankingItem['total_gd'];
+                    $excelValues[0][$row + 32][10] = $rankingItem['total_pt'];
+                    $excelValues[0][$row + 32][11] = $rankingItem['last_5'];
 
                     if($teamName == $homeTeam || $teamName == $awayTeam) {
                         $rowIndex = $teamName == $homeTeam ? 35 : 36;
@@ -542,6 +543,7 @@ class C_GlobalAPI extends C_Super
                         $excelValues[0][$rowIndex][31] = $rankingItem['total_pt'];
                         $excelValues[0][$rowIndex][32] = $rankingItem['last_5'];
                     }
+					$row++;
                 }
 
                 foreach ($lastMatches as $type => $matchesPerType) {

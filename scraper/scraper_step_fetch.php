@@ -7,6 +7,7 @@
  */
 
 // error_reporting(0);
+// command: php scraper_step_fetch.php [date=2020-10-09] [update_similarity]
 
 require_once "inc/SaveData.php";
 
@@ -20,13 +21,18 @@ try {
     $saveObj = new SaveData($_gDbConn_);
 
     $_gActiveDate_ = '';
+    $forceSimilarityUpdate = false;
     if($argc > 1) {
         $tmp = explode("=", $argv[1]);
 
         if($tmp[0] == 'date') {
             $_gActiveDate_ = $tmp[sizeof($tmp) - 1];
         }
+    	if(isset($argv[2]) && $argv[2] == 'update_similarity'){
+    		$forceSimilarityUpdate = true;
+		}
     }
+
 
     if(isEmptyString($_gActiveDate_)) {
         $_gActiveDate_ = getDateTime('Y-m-d');
@@ -54,6 +60,8 @@ try {
 
     ////////////////////////////////////////////////////////////////////////////////////
     // Get Leagues
+	// Command: casperjs fetch_leagues.js site=oddsportal link=https://www.oddsportal.com country=France,Netherlands,Germany,England,Spain,Italy
+	//
     ////////////////////////////////////////////////////////////////////////////////////
     printMessage("=> Retrieving leagues...", "", "fetch");
 
@@ -99,8 +107,10 @@ try {
 
     ////////////////////////////////////////////////////////////////////////////////////
     // Get Clubs
+	// Command: casperjs fetch_clubs.js season=2020/2021 site=oddsportal link=https://www.oddsportal.com/soccer/germany/2-bundesliga/standings/
     ////////////////////////////////////////////////////////////////////////////////////
     printMessage("=> Retrieving Clubs...", "", "fetch");
+    $clubs_updated = false;
 
     $possibleSites = $_gDbConn_->executeSQLAsArray("SELECT * FROM base_sites WHERE `site`<>'soccerbase'");
     $sql = <<<EOD
@@ -142,7 +152,7 @@ EOD;
                 if($numberOfClubs > 0) {
                     continue;
                 }
-
+				$clubs_updated = true;
                 $leagues = $retrieveObj->getBaseLeagues($siteName, $rmdCountry[$siteName], $recommendLeague);
                 foreach ($leagues as $league) {
                     $leagueLink = getValueInArray($league, 'link');
@@ -168,6 +178,19 @@ EOD;
             }
         }
     }
+
+	///////////////////////////////////////////////////////////////////////////////////////////////////////////
+	///	Check Similarity Clubs
+	///
+	///
+	///////////////////////////////////////////////////////////////////////////////////////////////////////////
+   if($clubs_updated || $forceSimilarityUpdate){
+		printMessage("=> Checking Similarity Clubs...", "", "fetch");
+    	$update_count = $saveObj->checkSimilarity($customSeason, $recommendLeagues, $possibleSites);
+    	if($update_count){
+			printMessage("  => Updated {$update_count} Similarity Clubs", "", "fetch");
+		}
+	}
 }
 catch(Exception $e) {
     echo " Error: " . $e->getMessage() . PHP_EOL;

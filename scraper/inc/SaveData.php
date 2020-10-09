@@ -1396,4 +1396,102 @@ EOD;
 
         return $resultValues;
     }
+
+
+	/**
+	 *  Check similarity clubs and update base_similarity table
+	 *
+	 * @param $recommendLeagues
+	 * @param $possibleSites
+	 * @throws Exception
+	 */
+    public function checkSimilarity($customSeason, $recommendLeagues, $possibleSites){
+		$similarity_clubs = [];
+		$update_count = 0;
+
+		foreach ($recommendLeagues as $recommendLeagueRecord) {
+			$recommendCountry = getValueInArray($recommendLeagueRecord, 'country');
+			$recommendLeague = getValueInArray($recommendLeagueRecord, 'oddsportal');
+
+			foreach ($possibleSites as $site) {
+				$siteName = getValueInArray($site, 'site');
+				$site_league = getValueInArray($recommendLeagueRecord, $siteName);
+
+				$sql = <<<EOD
+SELECT * 
+FROM base_leagues
+WHERE 
+  site='{$siteName}' AND 
+  country='{$recommendCountry}' AND 
+  league='{$site_league}'
+EOD;
+				$leagues = $this->m_DBConn->executeSQLAsArray($sql);
+
+				if(!count($leagues)){
+					continue;
+				}
+				$league = $leagues[0];
+				$leagueLink = getValueInArray($league, 'link');
+				printMessage("   - Checking clubs for [{$recommendCountry}][{$site_league}][$siteName] ...", "", "fetch");
+
+				try {
+					$command = CMD_SCRAPER_BASE_CLUBS . "season=\"{$customSeason}\" site=\"{$siteName}\" link=\"{$leagueLink}\"";
+					$jsonData = executeShellCommand($command);
+
+					if($jsonData != null) {
+						$totalFound = sizeof($jsonData);
+						printMessage("     Found {$totalFound} club(s).", "", "fetch");
+						if($totalFound > 0) {
+							if(!isset($similarity_clubs[$recommendLeague])){
+								$similarity_clubs[$recommendLeague] = [];
+							}
+							$similarity_clubs[$recommendLeague][$siteName] = [
+								'country' => $recommendCountry,
+								'data' => $jsonData,
+							];
+						}
+					}
+				}
+				catch(Exception $e) {
+					printMessage($e->getMessage(), "", "fetch");
+					continue;
+				}
+			}
+		}
+
+		if(count($similarity_clubs)){
+			foreach ($similarity_clubs as $league => $fetch_data){
+				if(!isset($fetch_data['oddsportal'])){
+					continue;
+				}
+				$country = $fetch_data['oddsportal']['country'];
+				foreach ($fetch_data['oddsportal']['data'] as $index => $club){
+					$insertValues = array(
+						"country"       => $country,
+						"type"  => 'team',
+						"oddsportal"  => $club
+					);
+
+					$updateValues = [];
+
+					foreach ($fetch_data as $site_name => $data){
+						if($site_name == 'oddsportal' || !isset($data['data'][$index])){
+							continue;
+						}
+						$site_clube_name = $data['data'][$index];
+						$insertValues[$site_name] = $site_clube_name;
+						$updateValues[$site_name] = $site_clube_name;
+					}
+
+					$sql =
+						"INSERT INTO base_similarity SET " . $this->m_DBConn->sqlAppendSetValues($insertValues, false) .
+						" ON DUPLICATE KEY UPDATE " . $this->m_DBConn->sqlAppendSetValues($updateValues, false);
+					$this->m_DBConn->executeSQL($sql);
+					$update_count++;
+				}
+			}
+		}
+
+		return $update_count;
+	}
 }

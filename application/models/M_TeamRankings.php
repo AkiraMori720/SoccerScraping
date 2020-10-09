@@ -198,8 +198,9 @@ EOD;
         }
 
         if(!isEmptyString($filter)) {
-            $sql .= "WHERE {$filter}";
+            $sql .= "WHERE {$filter} ";
         }
+        $sql .= "Order By cast(cur_rank as unsigned) ASC ";
 
         $records = $this->executeSQLAsArray($sql);
         $rankings = array();

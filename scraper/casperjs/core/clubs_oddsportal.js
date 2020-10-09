@@ -37,9 +37,9 @@ exports.executeScrape = function(season, callback) {
             failedOpenLink();
         }
         else {
-            casper.waitForSelector('ul[class^="main-filter"]',
+            casper.waitForSelector('ul.main-filter',
                 function(){
-                    var seasonSelector = 'ul[class^="main-filter"] > li > span';
+                    var seasonSelector = 'ul.main-filter > li > span';
                     var eleSeasons = findElementsInfo([seasonSelector]);
                     if(eleSeasons == null || eleSeasons.length == 0) {
                         terminate();
@@ -48,7 +48,7 @@ exports.executeScrape = function(season, callback) {
                     var bNeedToChangeSeason = false;
                     var i = 0;
                     for(; i < eleSeasons.length; i++) {
-                        if(eleSeasons[i].text.trim() == season) {
+                        if(eleSeasons[i].text.trim().substr(0, 4) === season.substr(0, 4)) {
                             bNeedToChangeSeason = (eleSeasons[i].attributes['class'].indexOf("inactive") >= 0);
                             break;
                         }
@@ -89,9 +89,9 @@ exports.executeScrape = function(season, callback) {
     }
 
     var fetchClubs = function() {
-        casper.waitForSelector('#table-type-1',
+		casper.waitForSelector('#table-type-1',
             function(){
-                var trSelector = '#table-type-1 > tbody > tr';
+				var trSelector = '#table-type-1 > tbody > tr';
                 var eleTeams = findElementsInfo([trSelector]);
                 if(eleTeams != null) {
                     for(var i = 0; i < eleTeams.length; i++) {
