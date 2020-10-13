@@ -310,7 +310,6 @@ EOD;
         $sql = "SELECT id, oddsportal_id, country, division, home_team, away_team, soccerway_link, date_found 
                 FROM matches_final WHERE 
                   `date_found`='{$date}' AND
-                  quantified=1 AND
                   LENGTH(soccerway_link) > 0 AND " .
             // "soccerway_link NOT IN(SELECT link FROM soccerway_link_logs WHERE DATEDIFF(NOW(), date_on) >= 2) AND " .
             " division IN (SELECT division FROM base_leagues_recommend WHERE season='{$season}')";
@@ -386,7 +385,7 @@ EOD;
     public function getQualifiedMatchesToAnalyze($date, $season) {
         $season  = $this->m_DBConn->getEscapedStr($season);
 
-        $records = $this->m_DBConn->executeSQLAsArray("SELECT * FROM matches_final WHERE date_found='{$date}' AND quantified=1 AND division IN (SELECT division FROM base_leagues_recommend WHERE season='{$season}') ORDER BY match_time ASC");
+        $records = $this->m_DBConn->executeSQLAsArray("SELECT * FROM matches_final WHERE date_found='{$date}' AND division IN (SELECT division FROM base_leagues_recommend WHERE season='{$season}') ORDER BY match_time ASC");
 
         return $records;
     }

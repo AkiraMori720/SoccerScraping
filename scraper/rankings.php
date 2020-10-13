@@ -8,7 +8,7 @@
 
 // error_reporting(0);
 
-require_once "../inc/SaveData.php";
+require_once "inc/SaveData.php";
 
 $_gDbConn_ = new Database();
 
@@ -52,8 +52,6 @@ try {
 
     ////////////////////////////////////////////////////////////////////////////////////
     // Get Rankings
-	// Command: casperjs soccerway_ranks.js season=2020/2021 country=germany league=2.-Bundesliga,Bundesliga
-	//
     ////////////////////////////////////////////////////////////////////////////////////
     printMessage("=> Retrieving Rankings...", "");
 
@@ -64,7 +62,7 @@ try {
         $leaguesOdds  = getValueInArray($league, 'divisions_oddsportal');
         $leaguesSoway = getValueInArray($league, 'divisions_soccerway');
 
-        printMessage("   - Checking for [{$country}] => [{$leaguesSoway}] ...", "");
+        printMessage("   - Checking for [{$country}] => [{$leaguesOdds}] ...", "");
 
         try {
             $customSeason = getCorrectSeason($_gActiveSeason_, "soccerway");
@@ -75,7 +73,6 @@ try {
 
             if($jsonData != null) {
                 $totalFound = sizeof($jsonData);
-		printMessage("     Command: {$command},  Found {$totalFound} rankings(s).", "");
                 if($totalFound > 0) {
                     $saveObj->saveRankings($_gActiveSeason_, $jsonData);
                 }

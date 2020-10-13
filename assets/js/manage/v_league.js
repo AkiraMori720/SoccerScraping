@@ -238,7 +238,7 @@ $(document).ready(function(){
                             continue;
                         }
 
-                        if (val == optVal || val.indexOf(optVal) != -1 || optVal.indexOf(val) != -1) {
+                        if (val == optVal) {
                             $('#dialog-league #opt' + Util.ucwords(site)).val($(optList[k]).attr('value'));
                             break;
                         }

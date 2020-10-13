@@ -288,7 +288,10 @@ EOD;
             $this->executeSQL($sql);
 
             $id = $this->getLastInsertedID();
-        }
+        } else {
+        	$sql = "UPDATE base_leagues_recommend SET max_matches=$maxMatches WHERE id='$id'";
+			$this->executeSQL($sql);
+		}
 
         // Add or Update on base_similarity
         $insertValues = array(

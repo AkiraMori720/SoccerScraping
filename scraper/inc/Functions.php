@@ -556,7 +556,7 @@ if(!function_exists('executeShellCommand')) {
         $response = null;
         if(!isEmptyString($command)) {
             $output = shell_exec($command);
-
+		
             if($toJSON) {
                 $response = json_decode($output, true);
             }

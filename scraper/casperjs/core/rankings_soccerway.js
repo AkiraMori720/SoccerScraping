@@ -57,7 +57,6 @@ exports.executeScrape = function(casper, country, leagueList, callback) {
     };
 
     var fetchRankings = function(callback){
-    	casper.echo('fetch rankins');
         var rowsSelector = 'table[id^="page_competition_1_block_competition"] > tbody > tr';
         casper.waitForSelector(
             rowsSelector,

@@ -64,13 +64,9 @@ try {
         'soccerway'  => array(),
     );
 
-    foreach ($recBaseCountries as $item) {
-        $selectedCountry[] = $item['country'];
-
-        foreach (array_keys($selectedCountryScraper) as $siteName) {
-            $selectedCountryScraper[$siteName][] = str_replace(" ", "-", $item[$siteName]);
-        }
-    }
+	foreach ($recBaseCountries as $item) {
+		$selectedCountry[] = $item['country'];
+	}
 
     try {
         $today = getDateTime('Y-m-d');
@@ -80,6 +76,20 @@ try {
         if($matches == null || sizeof($matches) == 0) {
             throw new Exception("No matches to check.");
         }
+
+		$matchCountries = [];
+		foreach ($matches as $match){
+			if(!in_array($match['country'], $matchCountries)){
+				$matchCountries[] = $match['country'];
+			}
+		}
+		foreach ($recBaseCountries as $item) {
+			if(in_array($item['country'], $matchCountries)){
+				foreach (array_keys($selectedCountryScraper) as $siteName) {
+					$selectedCountryScraper[$siteName][] = str_replace(" ", "-", $item[$siteName]);
+				}
+			}
+		}
 
         $teamsInTips = array();
         $divsInTips = array();
@@ -224,6 +234,8 @@ try {
                 $findResult = findSimilarMatchBy($country, $division, $team_1, $team_2, $matches, 'soccerway');
                 if ($findResult != null) {
                     $foundIndex = $findResult['index'];
+					//printMessage("   - Checking on findSimilarMatchBy ... {$country}, {$division}, {$team_1}, {$team_2}, {$foundIndex } " . count($matches), "", "analyze");
+
                     $division_oddsportal= $matches[$foundIndex]['division'];
                     $team_1_oddsportal  = $matches[$foundIndex]['team1'];
                     $team_2_oddsportal  = $matches[$foundIndex]['team2'];
@@ -464,6 +476,7 @@ try {
                 if(!isset($rankings[$country])){
                     continue;
                 }
+
                 // For Rankings
                 $ranksForThisTeam = $rankings[$country][$league];
 

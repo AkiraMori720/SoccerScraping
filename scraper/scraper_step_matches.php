@@ -52,52 +52,52 @@ try {
 
     chdir(ROOT_PATH . "/casperjs");
 
-    ////////////////////////////////////////////////////////////////////////////////////
-    // Get Referees
-    ////////////////////////////////////////////////////////////////////////////////////
-    printMessage("=> Retrieving Referees...", "", "matches");
-
-    foreach ($recBaseCountries as $recCountry) {
-        $selectedCountry = getValueInArray($recCountry, 'country');
-        if(isEmptyString($selectedCountry)) {
-            continue;
-        }
-
-        $leagues = $retrieveObj->getLeaguesFromSoccerBase($selectedCountry);
-
-        // Fetch refers
-        foreach ($leagues as $league) {
-            printMessage("   - Checking for the country [{$selectedCountry}][{$league['league']}] ...", "", "matches");
-            try {
-                $leagueID = $league['league_id'];
-
-                $command = CMD_SCRAPER_REFEREE_LIST . "season=\"{$_gActiveSeason_}\" league=\"{$leagueID}\"";
-                $jsonData = executeShellCommand($command);
-
-                if($jsonData != null) {
-                    $totalFound = sizeof($jsonData);
-                    printMessage("     Found {$totalFound} referee(s).", "", "matches");
-                    if($totalFound > 0) {
-                        $saveObj->saveRefereeList($_gActiveSeason_, $jsonData);
-
-                        foreach ($jsonData as $refereeItem) {
-                            $link = $refereeItem['link'];
-
-                            $tmp = preg_replace('/\//', '/20', $_gActiveSeason_);
-                            $command = CMD_SCRAPER_REFEREE_DETAIL . "season=\"{$tmp}\" link=\"{$link}\"";
-                            $jsonData = executeShellCommand($command);
-                            if($jsonData != null) {
-                                $saveObj->saveRefereeDetail($link, $_gActiveSeason_, $selectedCountry, $jsonData);
-                            }
-                        }
-                    }
-                }
-            }
-            catch(Exception $e) {
-                printMessage($e->getMessage(), "", "matches");
-            }
-        }
-    }
+//    ////////////////////////////////////////////////////////////////////////////////////
+//    // Get Referees
+//    ////////////////////////////////////////////////////////////////////////////////////
+//    printMessage("=> Retrieving Referees...", "", "matches");
+//
+//    foreach ($recBaseCountries as $recCountry) {
+//        $selectedCountry = getValueInArray($recCountry, 'country');
+//        if(isEmptyString($selectedCountry)) {
+//            continue;
+//        }
+//
+//        $leagues = $retrieveObj->getLeaguesFromSoccerBase($selectedCountry);
+//
+//        // Fetch refers
+//        foreach ($leagues as $league) {
+//            printMessage("   - Checking for the country [{$selectedCountry}][{$league['league']}] ...", "", "matches");
+//            try {
+//                $leagueID = $league['league_id'];
+//
+//                $command = CMD_SCRAPER_REFEREE_LIST . "season=\"{$_gActiveSeason_}\" league=\"{$leagueID}\"";
+//                $jsonData = executeShellCommand($command);
+//
+//                if($jsonData != null) {
+//                    $totalFound = sizeof($jsonData);
+//                    printMessage("     Found {$totalFound} referee(s).", "", "matches");
+//                    if($totalFound > 0) {
+//                        $saveObj->saveRefereeList($_gActiveSeason_, $jsonData);
+//
+//                        foreach ($jsonData as $refereeItem) {
+//                            $link = $refereeItem['link'];
+//
+//                            $tmp = preg_replace('/\//', '/20', $_gActiveSeason_);
+//                            $command = CMD_SCRAPER_REFEREE_DETAIL . "season=\"{$tmp}\" link=\"{$link}\"";
+//                            $jsonData = executeShellCommand($command);
+//                            if($jsonData != null) {
+//                                $saveObj->saveRefereeDetail($link, $_gActiveSeason_, $selectedCountry, $jsonData);
+//                            }
+//                        }
+//                    }
+//                }
+//            }
+//            catch(Exception $e) {
+//                printMessage($e->getMessage(), "", "matches");
+//            }
+//        }
+//    }
 
     ////////////////////////////////////////////////////////////////////////////////////
     // Get Rankings

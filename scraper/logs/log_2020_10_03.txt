@@ -1,4 +1,0 @@
-    Not Registered Team in base_similarity -> country : Spain , soccerway : Castellón 
-    Not Registered Team in base_similarity -> country : Spain , soccerway : UD Logroñés 
-    Not Registered Team in base_similarity -> country : Spain , soccerway : FC Cartagena 
-    Not Registered Team in base_similarity -> country : Spain , soccerway : Sabadell 
