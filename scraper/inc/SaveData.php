@@ -953,7 +953,6 @@ EOD;
         foreach ($data as $teamAlias => $details) {
             $teamType = ($teamAlias == 'team_a') ? 'home_team' : 'away_team';
 
-
             if(!isset($details['info'])){
                 continue;
             }

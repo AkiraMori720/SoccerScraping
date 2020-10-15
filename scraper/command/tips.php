@@ -104,6 +104,7 @@ try {
 
 		if($_gActiveDate_ >= $today) {
 			$command = CMD_SCRAPER_PREDICTZ . "date=\"{$_gActiveDate_}\" country=\"" . implode(',', $selectedCountryScraper['predictz']) . "\"";
+			var_dump($command);
 			$jsonData = executeShellCommand($command);
 			$jsonTips['predictz'] = $jsonData;
 			if($jsonData != null && is_array($jsonData)) {
@@ -221,7 +222,6 @@ try {
 		printMessage("   - Checking on SoccerWay ...", "", "tips");
 		$command = CMD_SCRAPER_SOCCERWAY . "date=\"{$_gActiveDate_}\" country=\"" . implode(',', $selectedCountryScraper['soccerway']) . "\"";
 		$jsonData = executeShellCommand($command);
-		var_dump($command);
 		$jsonTips['soccerway'] = $jsonData;
 		if($jsonData != null && is_array($jsonData)) {
 			foreach ($jsonData as $soccerway) {

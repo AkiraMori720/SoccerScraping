@@ -238,7 +238,7 @@ class M_Similarity extends M_DataTable
                   matches.odds_1,
                   matches.odds_x,
                   matches.odds_2,
-                  IF(matches.odds_1 >= {$minOdds} AND matches.odds_x >= {$minOdds} AND matches.odds_2 >= {$minOdds}, 1, 0) as quantified,
+		  		  IF(matches.odds_1 >= {$minOdds} AND matches.odds_x >= {$minOdds} AND matches.odds_2 >= {$minOdds}, 1, 0) as quantified,
                   matches.bookmark,
                   matches.date_found,
                   matches.match_time,
